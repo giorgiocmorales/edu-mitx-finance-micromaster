@@ -1,3 +1,3 @@
-# MITx Finance Micromaster
+# MITx Finance MicroMaster
 
-This repository contains scripts, datasets, and exercises developed as part of my coursework and independent study in the Finance Micromaster.
+This repository contains scripts, datasets, and exercises developed as part of my MITx Finance MicroMaster coursework and independent study.

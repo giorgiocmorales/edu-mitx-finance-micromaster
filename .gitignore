@@ -1,21 +1,43 @@
-# RStudio
-.Rproj.user/
+# R and RStudio
 .Rhistory
+.Rapp.history
 .RData
+.RDataTmp
 .Ruserdata
+.Rproj.user/
+.Renviron
+
+# Package build and check outputs
+*-Ex.R
+/*.tar.gz
+/*.Rcheck/
+vignettes/*.html
+vignettes/*.pdf
+
+# R Markdown and documentation outputs
+*_cache/
+/cache/
+*.utf8.md
+*.knit.md
+docs/
+reports/_site/
+
+# Authentication and deployment files
+.httr-oauth
+rsconnect/
+
+# Translation temporary files
+po/*~
 
 # renv
 renv/library/
 renv/staging/
 
-# Local-only data and outputs
+# Local-only data, references, and outputs
 data/
 outputs/
 references/pdfs/
 
-# Reports build artifacts
-reports/_site/
-
-# OS junk
+# Operating-system files
 .DS_Store
 Thumbs.db
