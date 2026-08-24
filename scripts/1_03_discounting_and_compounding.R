@@ -128,9 +128,37 @@ cb <- pv*(r - g)/(1 + g)
 
 round(cb, 6)
 
+## R3.6 -----
+
+r_apr <- 0.20
+k <- 12
+
+### A ----
+
+r_ear <- (1 + r_apr/k)^k - 1
+
+round(r_ear, 6)
+
+### B ----
+
+r_ear <- 0.25
+
+k <- c(1, 2, 4, 12, 24, 58, 365)
+
+r_apr <- k*((r_ear + 1)^(1/k) - 1)
+
+r_apr
+
+## R3.7 ----
+
+### A -----
+
+### B -----
+  
 # Problem Set ----
 
 ## Q1 ----
+
 r <- 0.07
 a <- 5000
 
@@ -149,6 +177,7 @@ pv_t0 <- pv_t2/(1 + r)^t_gap
 round(pv_t0, digits = 6)
 
 ## Q2 ----
+
 r <- 0.03
 p <- 800000
 
@@ -159,7 +188,7 @@ round(pv_all, digits = 6)
 
 ## Q3 ----
 
-t <- 65 - 29 - 1
+t <- 65 - 29
 t_mba <- 2
 
 tuition <- 65000
@@ -170,22 +199,26 @@ rf <- 0.04
 g <- 0.04
 
 ### A ----
+
 pv_salary_t0 <- salary/r*(1 - 1/(1 + r)^t)
 
-pv_salary_all <- salary + pv_salary_t0
+pv_salary_t0
 
-round(pv_salary_all, digits = 6)
+round(pv_salary_t0, digits = 6)
 
 ### B ----
 
-pv_mba_t0 <- tuition/r*(1 - 1/(1 + r)^t_mba)
+pv_mba_t0 <- tuition/rf*(1 - 1/(1 + rf)^t_mba)
 
 round(pv_mba_t0, digits = 6)
 
 
 ### C ----
-pv <- pv_mba_t0 + pv_salary
+pv_t2 <- (pv_mba_t0 + pv_salary_t0)*(1 + r)^2
 
+c <- pv_t2*(r - g)*(1 - ((1 + g)/(1 + r))^(t - t_mba))^(-1)
+
+round(c, 6)
 
 ## Q4 ----
 ## Q5 ----
