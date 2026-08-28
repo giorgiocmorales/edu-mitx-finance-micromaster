@@ -12,3 +12,5 @@ options(digits = 15)
 # Recitation ----
 
 # Problem Set ----
+
+rm(list = ls())

@@ -30,3 +30,5 @@ projects
 # Recitation ----
 
 # Problem Set ----
+
+rm(list = ls())

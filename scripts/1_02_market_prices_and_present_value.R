@@ -11,6 +11,8 @@ options(digits = 15)
 
 # Recitation ----
 
+rm(list = ls())
+
 ## R2.1 ----
 
 prob <- c(0.3, 0.4, 0.3)
@@ -35,6 +37,8 @@ r_bond
 E_stock
 r_stock
 
+rm(list = ls())
+
 ## R2.2 ----
 
 phi <- c(0.35, 0.55)
@@ -47,6 +51,8 @@ stock_price <- sum(phi * stock_payoff)
 
 bond_price
 stock_price
+
+rm(list = ls())
 
 ## R2.3 ----
 
@@ -66,6 +72,8 @@ phi <- solve(X, prices)
 
 phi
 
+
+rm(list = ls())
 
 ## R2.4 ----
 
@@ -92,9 +100,11 @@ price_y
 E_y
 r_y
 
+rm(list = ls())
+
 ## R2.5 ----
 
-### A ----
+### A
 pv_a <- 10000
 cf_b1 <- 11500
 t <- 1
@@ -105,7 +115,7 @@ pv_b <- cf_b1/(1+r)^t
 pv_a
 pv_b # Pick B
 
-### B ----
+### B
 
 pv_a <- 10000
 cf_b1 <- 18000
@@ -117,11 +127,13 @@ pv_b <- cf_b1/(1+r)^t
 pv_a # Pick A
 pv_b
 
+rm(list = ls())
+
 ## R2.6 ----
 
 t <- 20
 
-### A: Annual return from tripling in value ----
+### A: Annual return from tripling in value
 
 growth_multiple <- 3
 
@@ -131,7 +143,7 @@ r_apartment
 r_apartment * 100
 
 
-### B: Wealth growth at 10.2% annual return ----
+### B: Wealth growth at 10.2% annual return
 
 r_market <- 0.102
 
@@ -140,7 +152,7 @@ wealth_multiple <- (1 + r_market)^t
 wealth_multiple
 
 
-### C: Return earned on previous returns ----
+### C: Return earned on previous returns
 principal_multiple <- 1
 simple_return_multiple <- r_market * t
 
@@ -153,6 +165,8 @@ return_on_return
 # Check
 principal_multiple + simple_return_multiple + return_on_return
 
+rm(list = ls())
+
 ## R2.7 ----
 
 cf <- 650000
@@ -161,21 +175,21 @@ pi <- 0.025
 g <- 0.03
 r_real <- 0.06
 
-### A ----
+### A
 
 cf1_real <- cf*(1 + g)
 cf1_real
 
-### B ----
+### B
 
 pv_cf1_real <- cf1_real/(1 + r_real)
 pv_cf1_real
 
-### C ----
+### C
 cf1_nominal <- cf*(1 + g)*(1 + pi)
 cf1_nominal 
 
-### D ----
+### D
 r_nominal <- (1 + r_real)*(1 + pi) - 1
 r_nominal
 
@@ -185,21 +199,21 @@ pv_cf1_nominal
 #Check
 identical(pv_cf1_real, pv_cf1_nominal)
 
-### E ----
+### E
 t <- 1:4
 
 cf_real <- cf*(1 + g)^t
 cf_real
 
-### F ----
+### F
 pv_cf_real <- sum(cf_real/(1 + r_real)^t)
 pv_cf_real
 
-### G ----
+### G
 cf_nominal <- cf*((1 + g)^t)*((1 + pi)^t)
 cf_nominal
 
-### H ----
+### H
 pv_cf_nominal <- sum((cf_nominal)/(1 + r_nominal)^t)
 pv_cf_nominal
 
@@ -208,6 +222,8 @@ identical(pv_cf_real, pv_cf_nominal)
 
 # Problem Set ----
 
+rm(list = ls())
+
 ## Q1 ----
 prob <- c(0.30, 0.50, 0.20)
 phi <- c(0.60, 0.20, 0.10)
@@ -215,15 +231,15 @@ phi <- c(0.60, 0.20, 0.10)
 bond_payoff <- c(100, 100, 100)
 stock_payoff <- c(90, 105, 120)
 
-### A ----
+### A
 p_bond <- sum(bond_payoff*phi)
 round(p_bond, 5) 
 
-### B ----
+### B
 p_stock <- sum(stock_payoff*phi)
 round(p_stock, 5)
 
-### C ----
+### C
 E_bond <- sum(bond_payoff*prob)
 
 return_bond <- E_bond/p_bond-1
@@ -231,7 +247,7 @@ return_bond
 
 round(return_bond*100, 6)
 
-### D ----
+### D
 E_stock <- sum(stock_payoff*prob)
 
 return_stock <- E_stock/p_stock - 1
@@ -239,9 +255,11 @@ return_stock
 
 round(return_stock*100, 6)
 
+rm(list = ls())
+
 ## Q2 ----
 
-### A ----
+### A
 a_payoff <- c(2.40, 0.60)
 b_payoff <- c(0.60, 2.40)
 
@@ -264,14 +282,14 @@ phi <- solve(x, prices)
 
 round(phi, 6)
 
-### B ----
+### B
 c_payoff <- c(5.50, 9.50)
 
 c_price <- sum(c_payoff*phi)
 
 round(c_price, 6)
 
-### C ----
+### C
 
 d_payoff <- c(100, 100)
 p_d <- sum(d_payoff*phi)
@@ -284,6 +302,8 @@ rf_return <- E_d/p_d - 1
 round(rf_return, 6)
 
 sum(phi)
+
+rm(list = ls())
 
 ## Q3 ----
 
@@ -300,9 +320,11 @@ cf0 <- final/(1 + r)^t
 
 round(cf0, 6)
 
+rm(list = ls())
+
 ## Q4 ----
 
-### A ----
+### A
 t <- c(0, 5, 10, 50)
 cf <- 1500000
 r <- 0.07
@@ -312,16 +334,18 @@ pv_cf <- cf/(1 + r)^t
 round(pv_cf/1000000, 6)
 
 
-### B ----
+### B
 r_2 <- 0.10
 
 pv_cf <- cf/(1 + r_2)^t
 
 round(pv_cf/1000000, 6)
 
+rm(list = ls())
+
 ## Q5 ----
 
-### A ----
+### A
 
 cf0 <- 24
 
@@ -333,20 +357,22 @@ cf_terminal <- cf0*(1 + r)^t
 
 round(cf_terminal/10^9, 6)
 
-### B ----
+### B
 r2 <- 0.06
 
 cf_terminal <- cf0*(1 + r2)^t
 
 round(cf_terminal/10^9, 6)
 
-### C ----
+### C
 r3 <- 0.07
 
 cf_terminal <- cf0*(1 + r3)^t
 
 round(cf_terminal/10^12, 6)
 
+
+rm(list = ls())
 
 ## Q6 ----
 sales_0 <- 15000000
@@ -355,19 +381,19 @@ t <- 1:3
 pi <- 0.02
 r_nominal <- 0.12
 
-### A ----
+### A
 sales_nominal <- sales_0*((1 + g_real)^t)*((1 + pi)^t)
 round(sales_nominal/10^6, 6)
 
-### B ----
+### B
 pv_nominal <- sum(sales_nominal/(1 + r_nominal)^t)
 round(pv_nominal/10^6, 6)
 
-### C ----
+### C
 sales_real <- sales_0*(1 + g_real)^t
 round(sales_real/10^6, 6)
 
-### D ----
+### D
 r_real <- (1 + r_nominal)/(1 + pi) - 1
 
 pv_real <- sum(sales_real/(1 + r_real)^t)
@@ -376,3 +402,5 @@ round(pv_real/10^6, 6)
 
 ## Check
 identical(pv_nominal, pv_real)
+
+rm(list = ls())
