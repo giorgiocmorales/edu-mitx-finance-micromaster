@@ -193,7 +193,7 @@ c_old
 # New loan rate
 r_apr_new <- 0.045
 
-k <- 12 
+k <- 12
 
 r_ear_new <- (1 + r_apr_new/k)^k -1
 
