@@ -106,7 +106,7 @@ names(spot_rates) <- paste0("r", t)
 
 spot_rates*100
 
-# Implied fair price for bond D ----
+# Implied fair price for bond D
 
 cash_flow_d <- c(coupon_d, coupon_d, coupon_d + principal)
 
@@ -150,9 +150,53 @@ rm(list = ls())
 
 ## R4.3 ----
 
+t <- 1:5
+face <- 100
+c_rate <- 4.5/100
+coupon <- face * c_rate
+
+ytm <- 3.15/100
+
+cash_flows <- c(coupon, coupon, coupon, coupon, coupon + face)
+
+price <- sum(cash_flows/(1 + ytm)^t)
+
+price
+
 rm(list = ls())
 
 ## R4.4 ----
+
+face <- 100
+
+c_rate <- 5.25/100
+
+coupon <- c_rate * face
+
+t <- 1:3
+
+spot_rates <- c(1.10, 1.15, 1.50)/100
+
+cash_flow <- c(coupon, coupon, coupon + face)
+
+price <- sum(cash_flow/(1 + spot_rates)^t)
+
+price
+
+ytm_equation <- function(y) {
+  sum(cash_flow / (1 + y)^t) - price
+}
+
+ytm <- uniroot(
+  ytm_equation,
+  interval = c(0, 0.10)$root
+)
+
+ytm
+
+ytm * 100
+
+
 
 rm(list = ls())
 
